@@ -52,7 +52,7 @@ public:
                     while(j<k && nums[j]==nums[j-1]){  //coz the same value has already occured
                         j++;
                     }
-                    while(j<k && nums[k]==nums[k+1]){  //coz the same value has already ocuured
+                    while(j<k && nums[k]==nums[k+1]){  //coz the same value has already occured
                         k--;
                     }
                 }
