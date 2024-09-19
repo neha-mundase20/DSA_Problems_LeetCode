@@ -11,17 +11,15 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        ListNode*temp=head;
-        int count=0,val=0;
-        while(temp!=nullptr){
-            temp=temp->next;
-            count++;
+        //Hare-tortoise algorithm
+        ListNode*slow=head;
+        ListNode*fast=head;
+
+        while(fast!=nullptr && fast->next!=nullptr){
+            slow=slow->next;
+            fast=fast->next->next;
         }
-        temp=head;
-        while(val!=count/2){
-            temp=temp->next;
-            val++;
-        }
-        return temp;
+
+        return slow;
     }
 };
