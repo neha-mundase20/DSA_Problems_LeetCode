@@ -9,20 +9,21 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        bool flag=false;
-        
-        unordered_set<ListNode*>ust;
-        
+        unordered_set<ListNode*>st;
+
         ListNode*temp=head;
-        
+
         while(temp!=nullptr){
-            if(ust.find(temp)!=ust.end()){  //a cycle is present
-                flag=true;
-                break;
+            if(st.find(temp)!=st.end()){    
+                //If already traversed node is found
+                return true;
             }
-            ust.insert(temp);
-            temp=temp->next;
+            else{
+                //If already traversed node isn't found
+                st.insert(temp);
+                temp=temp->next;
+            }
         }
-        return flag;
+        return false;
     }
 };
